@@ -1,0 +1,1 @@
+cara pakai tinggal klik
