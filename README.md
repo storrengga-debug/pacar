@@ -1,1 +1,1 @@
-cara pakai tinggal klik
+ini web just fiends
