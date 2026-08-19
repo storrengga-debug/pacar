@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Kamu ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+  font-family:Arial,sans-serif;background:linear-gradient(135deg,#ffd8e8,#fff3f8);
+  overflow:hidden;
+}
+.card{
+  width:min(90%,430px);padding:30px 22px;text-align:center;background:white;
+  border-radius:25px;box-shadow:0 12px 35px #0002;
+}
+.heart{font-size:55px}
+h1{color:#e83e78;font-size:27px;margin:10px 0}
+p{color:#555;font-size:17px;line-height:1.5}
+input{
+  width:90%;padding:14px 16px;border:2px solid #f2a1bf;border-radius:14px;
+  outline:none;font-size:17px;text-align:center;margin:12px 0;
+}
+.start{
+  border:0;border-radius:999px;padding:13px 27px;background:#e83e78;
+  color:white;font-size:17px;font-weight:bold;cursor:pointer;
+}
+#question{display:none}
+.buttons{height:85px;position:relative;margin-top:20px}
+button.answer{
+  border:0;border-radius:999px;padding:13px 25px;font-size:17px;font-weight:bold;
+  position:absolute;top:10px;
+}
+#yes{background:#e83e78;color:white;left:18%;cursor:pointer}
+#no{background:#ddd;color:#555;left:57%;cursor:not-allowed}
+#result{display:none;color:#e83e78;font-weight:bold;font-size:20px;margin-top:12px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="heart">❤️</div>
+
+  <div id="nameBox">
+    <h1>Hai 👋</h1>
+    <p>Masukkan nama kamu dulu 😊</p>
+    <input id="nameInput" type="text" placeholder="Tulis nama di sini..." maxlength="30">
+    <br>
+    <button class="start" onclick="start()">Lanjut ❤️</button>
+  </div>
+
+  <div id="question">
+    <h1>Aku sayang <span id="name"></span> ❤️<br>mau nggak jadi pacar aku?</h1>
+    <p>🥰</p>
+    <div class="buttons">
+      <button class="answer" id="yes">Mau ❤️</button>
+      <button class="answer" id="no" tabindex="-1">Engga 🥺</button>
+    </div>
+    <div id="result">Harus mau!!! 😝❤️</div>
+  </div>
+</div>
+
+<script>
+function start(){
+  const value=document.getElementById("nameInput").value.trim();
+  if(!value){ alert("Isi namanya dulu ya 😊"); return; }
+  document.getElementById("name").textContent=value;
+  document.getElementById("nameBox").style.display="none";
+  document.getElementById("question").style.display="block";
+}
+
+const no=document.getElementById("no");
+["click","mousedown","touchstart","pointerdown"].forEach(e=>{
+  no.addEventListener(e,ev=>{ev.preventDefault();ev.stopPropagation();});
+});
+document.getElementById("yes").addEventListener("click",()=>{
+  document.getElementById("result").style.display="block";
+});
+</script>
+</body>
+</html>
